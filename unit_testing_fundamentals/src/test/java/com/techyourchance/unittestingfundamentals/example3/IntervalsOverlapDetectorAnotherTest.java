@@ -73,4 +73,22 @@ public class IntervalsOverlapDetectorAnotherTest {
         boolean result = SUT.isOverlap(interval1, interval2);
         assertFalse(result);
     }
+
+    @Test
+    public void isOverlap_interval1BeforeAdjacentInterval2_falseReturned() {
+        Interval interval1 = new Interval(-1, 5);
+        Interval interval2 = new Interval(5, 8);
+
+        boolean result = SUT.isOverlap(interval1, interval2);
+        assertFalse(result);
+    }
+
+    @Test
+    public void isOverlap_interval1AfterAdjacentInterval2_falseReturned() {
+        Interval interval1 = new Interval(-1, 5);
+        Interval interval2 = new Interval(-3, -1);
+
+        boolean result = SUT.isOverlap(interval1, interval2);
+        assertFalse(result);
+    }
 }
