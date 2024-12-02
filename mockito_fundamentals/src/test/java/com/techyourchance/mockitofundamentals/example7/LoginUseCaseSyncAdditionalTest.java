@@ -17,29 +17,29 @@ import com.techyourchance.mockitofundamentals.example7.networking.NetworkErrorEx
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class LoginUseCaseSyncAdditionalTest {
 
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
     public static final String AUTH_TOKEN = "authToken";
 
-    LoginHttpEndpointSync loginHttpEndpointSyncMock;
-    AuthTokenCache authTokenCacheMock;
-    EventBusPoster eventBusPosterMock;
+    @Mock LoginHttpEndpointSync loginHttpEndpointSyncMock;
+    @Mock AuthTokenCache authTokenCacheMock;
+    @Mock EventBusPoster eventBusPosterMock;
 
     LoginUseCaseSync SUT;
 
     @Before
     public void setUp() throws Exception {
-        loginHttpEndpointSyncMock = Mockito.mock(LoginHttpEndpointSync.class);
-        authTokenCacheMock = Mockito.mock(AuthTokenCache.class);
-        eventBusPosterMock = Mockito.mock(EventBusPoster.class);
         SUT = new LoginUseCaseSync(
                 loginHttpEndpointSyncMock,
                 authTokenCacheMock,
