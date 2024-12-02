@@ -1,6 +1,5 @@
 package com.techyourchance.mockitofundamentals.example7;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
@@ -22,6 +21,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
 import java.util.List;
+
 
 public class LoginUseCaseSyncAdditionalTest {
 
