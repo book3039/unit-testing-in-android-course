@@ -1,4 +1,4 @@
-package com.techyourchance.unittestinginandroid.example12;
+package com.techyourchance.unittestinginandroid.example13;
 
 import static org.junit.Assert.*;
 
@@ -16,46 +16,32 @@ import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-import android.content.Context;
-
 @RunWith(MockitoJUnitRunner.class)
-public class StringRetrieverPracticeTest {
-    public static final int ID = 10;
-    public static final String STRING = "string";
+public class AndroidUnitTestingProblemsPracticeTest {
 
     // region constants
 
     // endregion constants
 
     // region helper fields
-    @Mock Context contextMock;
+
     // endregion helper fields
 
-    StringRetrieverPractice SUT;
+    AndroidUnitTestingProblemsPractice SUT;
 
     @Before
     public void setUp() throws Exception {
-        SUT = new StringRetrieverPractice(contextMock);
+        SUT = new AndroidUnitTestingProblemsPractice();
 
     }
 
     @Test
-    public void getString_correctParameterPassedToContext() throws Exception {
+    public void testStaticApiCall() throws Exception {
         // Arrange
         // Act
-        SUT.getString(ID);
+        SUT.callStaticAndroidApi("");
         // Assert
-        verify(contextMock).getString(ID);
-    }
-
-    @Test
-    public void getString_correctResultReturned() throws Exception {
-        // Arrange
-        when(contextMock.getString(ID)).thenReturn(STRING);
-        // Act
-        String result = SUT.getString(ID);
-        // Assert
-        assertEquals(result, STRING);
+        assertTrue(true);
     }
 
     // region helper methods
